@@ -1,7 +1,21 @@
-<% unless @match_users.empty? %>
-    <ul>
-      <% @match_users.each do |user| %>
-        <li><%= user.name %></li>
+<div class="matching__list">
+  <% unless @match_users.empty? %>
+    <% @match_users.each do |user| %>
+
+      <%# この行を追加 %>
+      <%= link_to chat_rooms_path(params: { user_id: user.id }), method: :post do %>
+
+        <div class="matching__person">
+
+          <div class="matching__person-name">
+            <%= user.name %>
+          </div>
+
+        </div>
+      
+      <%# この行を追加 %>
       <% end %>
-    </ul>
+
+    <% end %>
   <% end %>
+</div>

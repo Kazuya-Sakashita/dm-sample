@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :matching, only: [:index]
   get 'chat/:id', to: 'chats#show', as: 'chat'
   resources :chats, only: [:create]
+  resources :chat_rooms, only: [:create, :show]
 end
